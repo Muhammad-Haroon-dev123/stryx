@@ -1,0 +1,756 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    overflow-x: hidden;
+
+}
+
+.top-black-nav {
+    background-color: #343a40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.top-black-nav p {
+    color: #f3f3f3;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 12px 40px;
+    height: 100px;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo .logo-img {
+    width: 100px
+}
+
+.nav-links {
+    padding-right: 20px;
+    display: flex;
+    gap: 150px;
+}
+
+.nav-links a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #22386a;
+}
+
+
+/* Toggle hidden on desktop */
+.toggle-btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* -------------------------------NAVIGATION MEDIA QUERY------------------------------------- */
+
+
+/* Mobile & Tablet */
+@media (max-width: 992px) {
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        height: 100px;
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        transition: height 0.4s ease;
+    }
+
+    /* Toggle LEFT */
+    .toggle-btn {
+        display: block;
+        order: 1;
+    }
+
+    
+
+    /* Links bottom center */
+    .nav-links {
+        order: 3;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        gap: 20px;
+    }
+
+    /* When click → navbar height increase and links show */
+    .navbar.active {
+        height: 350px;
+    }
+
+    .navbar.active .nav-links {
+        max-height: 300px;
+    }
+
+}
+
+/* HERO SECTION START */
+
+.hero {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: #d8d8d8;
+    clip-path: polygon(55% 0, 0 0, 0 68%);
+    z-index: 0;
+}
+
+.hero-main-div {
+    padding-left: 150px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-left {
+    width: 50%;
+}
+
+.hero-left h1 {
+    font-size: clamp(32px, 72px, 72px);
+    text-transform: uppercase;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.hero-left p {
+    font-size: 18px;
+    color: #212529;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    padding-right: 80px;
+}
+
+.hero-right {
+    width: 50%;
+    text-align: top;
+}
+
+.hero-right img {
+    margin-top: -100px;
+    width: 100%;
+}
+/* -------------------------------HERO SECTION MEDIA QUERY------------------------------------- */
+
+@media (max-width: 992px) {
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero::before {
+        width: 100%;
+        height: 40%;
+        clip-path: polygon(50% 0, 0 0, 50%);
+    }
+
+    .hero-main-div {
+        flex-direction: column;
+        padding-left: 0;
+        align-items: center;
+        /* text-align: center; */
+    }
+
+    /* Content first */
+    .hero-left {
+        width: 100%;
+        order: 1;
+    }
+
+    /* Small heading */
+    .hero-left h1 {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .hero-left p {
+        font-size: 14px;
+        padding-right: 0;
+    }
+
+    .hero-left button {
+        width: 100% !important;
+        max-width: 300px;
+    }
+
+    /* Image bottom */
+    .hero-right {
+        width: 100%;
+        order: 2;
+        margin-top: 30px;
+    }
+
+    /* Smaller image */
+    .hero-right img {
+        width: 80%;
+        margin-top: 0;
+    }
+
+}
+
+
+
+
+/* MARQUES */
+
+/* CAROUSEL */
+#cardCarousel {
+    background-color: #22386a;
+    height: 100px; /* overall height */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* row flex horizontal */
+#cardCarousel .carousel-inner .row {
+    display: flex;
+    justify-content: space-around; /* spread images evenly */
+    align-items: center;
+    flex-wrap: nowrap; /* prevent stacking */
+}
+
+/* image size small */
+#cardCarousel img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* mobile responsive */
+@media (max-width: 992px) {
+    #cardCarousel {
+        height: 70px;
+    }
+
+    #cardCarousel img {
+        width: 90px;
+    }
+}
+
+
+/* -------------------------------MARQUE MEDIA QUERY------------------------------------- */
+
+
+
+/* PRODUCTS SECTION */
+
+.products-section {
+    position: relative;
+    padding: 80px 0;
+    background: #f3f3f3;
+    overflow: hidden;
+}
+
+/* Clip path shape */
+.products-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #e9e9e9;
+    clip-path: polygon(50% 0, 0 0, 0 200%);
+    z-index: 0;
+}
+
+/* content above shape */
+.products-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.h1-font {
+    font-size: clamp(32px, 96px, 96px);
+    margin-bottom: 80px;
+}
+
+.products-section {
+    padding: 60px 0;
+    background: #f3f3f3;
+}
+
+/* Card */
+.product-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* Image container */
+.product-img {
+    overflow: hidden;
+}
+
+/* Image */
+.product-img img {
+    width: 100%;
+    display: block;
+    transition: 0.4s ease;
+}
+
+/* Zoom on hover */
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Body */
+.product-body {
+    padding: 20px;
+}
+
+.product-number {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.product-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.product-rating {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.reviews {
+    color: #777;
+    margin-left: 5px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Arrows */
+/* .carousel-control-prev-icon,
+.carousel-control-next-icon{
+    background-color:#000;
+    border-radius:50%;
+    padding:15px;
+} */
+/* -------------------------------PRODUCT MEDIA QUERY------------------------------------- */
+/* Mobile styles */
+@media (max-width: 767px) {
+
+    /* Heading center + smaller font */
+    .products-section .h1-font {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    /* Remove clip-path */
+    .products-section::before {
+        clip-path: none;
+        height: 0;
+        background: none;
+    }
+}
+
+/* Carousel item row */
+#productCarousel .carousel-item .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* prevent stacking */
+     /* space between cards */
+}
+
+/* Product card width */
+#productCarousel .carousel-item .col-lg-4,
+#productCarousel .carousel-item .col-md-6 {
+    flex: 0 0 auto;
+}
+
+/* Desktop - 3 products per row */
+@media (min-width: 1200px) {
+    #productCarousel .carousel-item .col-lg-4 {
+        flex: 0 0 33.33%; /* 3 products per row */
+    }
+}
+
+/* Tablet - 3 products per row */
+@media (max-width: 1199px) and (min-width: 768px) {
+    #productCarousel .carousel-item .col-md-6 {
+        flex: 0 0 33.33%; /* 3 products per row */
+        
+    }
+}
+
+/* Mobile - 1 product per row + text center */
+@media (max-width: 767px) {
+    #productCarousel .carousel-item .col-md-6 {
+        flex: 0 0 100%; /* 1 product per slide */
+       
+    }
+
+    /* Heading center */
+    /* .products-section .h1-font {
+        text-align: center;
+        padding: 0 15px;
+    } */
+
+    /* Product body text center */
+    .product-body {
+        text-align: center;
+    }
+
+    /* Reviews stars center */
+    .product-rating {
+        justify-content: center;
+        display: flex;
+        gap: 5px;
+    }
+}
+
+/* PRODUCT SECTION 2 */
+.products-section-2{
+    background-color: #e9e9e9;
+    /* padding-left: 100px; */
+}
+
+.h1-p{
+    padding-left: 100px;
+}
+
+.h1-font-2 br{
+    display: block;
+}
+
+.h1-font-2{
+    font-weight: 500;
+    font-size: 64px;
+}
+
+.sec-card{
+    margin-top: 50px;
+}
+
+/* -------------------------------PRODUCT MEDIA QUERY------------------------------------- */
+
+
+/* Mobile styles for products-section-2 */
+@media (max-width: 767px) {
+    .products-section-2 {
+        padding: 60px 15px; /* top-bottom + left-right padding */
+    }
+
+    .h1-p{
+    padding-left: 0px;
+}
+
+    .h1-font-2 br{
+        display: none;
+    }
+
+
+    .h1-font-2 {
+        font-size: 34px;
+        text-align: center;
+        font-weight: 700;
+        margin-left: 0;
+    }
+
+    .sec-card .col-lg-6 {
+        text-align: center; /* images & text center on mobile */
+    }
+
+    .sec-card img {
+        max-width: 90%; /* images smaller on mobile */
+        margin: 0 auto;
+    }
+}
+
+
+
+.products-3{
+    padding-top: 50px;
+    background-color: #e9e9e9;
+    align-items: center;
+}
+
+.h1-font-3{
+    font-size: 64px;
+    text-align: center;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+
+.pen1{
+    padding-left: 450px;
+    position:relative;
+}
+
+/* top image fixed */
+.img1{
+    height:1000px;
+    position:relative;
+    z-index:2;
+}
+
+/* bottom image animation */
+.img2{
+    height:1000px;
+    position:relative;
+    margin-top: -1195px;
+}
+
+/* Mobile adjustments only */
+@media (max-width: 767px) {
+
+    /* Heading smaller and center */
+    .h1-font-3 {
+        font-size: 28px; /* smaller heading */
+        font-weight: 700;
+        text-align: center;
+    }
+
+    /* Stack columns: content first, images below */
+    .products-3 .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .products-3 .row > .col-lg-6:first-child {
+        order: 2; /* images column below */
+        padding-left: 0 !important; /* remove desktop padding */
+        text-align: center;
+    }
+
+    .products-3 .row > .col-lg-6:last-child {
+        order: 1; /* content column first */
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    /* Images responsive and visible */
+    .img1, .img2 {
+        height: 500px !important; /* remove fixed height */
+        max-width: 90%;
+        margin: 0 auto;
+        margin-top: 20px; /* spacing between images and content */
+        position: relative; /* keep animation intact */
+    }
+
+    /* Optional: spacing between two images */
+    .img2 {
+    margin-top: -598px;
+       
+    }
+}
+
+
+.section-4{
+    background: linear-gradient(to bottom, #e9e9e9 50%, #343a40 50%);
+   
+}
+
+.inter-container{
+    background-color: #F3F3F3;
+}
+
+.content-h1{
+    padding: 100px; 
+}
+
+
+.content-h2{
+    padding: 60px;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+.content-p{
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+.icon-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-btn{
+    margin-top: 50px;
+    background-color: #343a40;
+    border: none;
+}
+
+/* -------------------------------------------------------------------- */
+@media (max-width: 767px) {
+    .section-4 .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-4 .row > .col-md-6 img {
+        order: 1;
+    }
+
+    .section-4 .row > .col-md-6.content-h1 {
+        order: 2;
+    }
+}
+
+
+/* Mobile carousel button fix */
+@media (max-width: 767px) {
+    /* Stack image + content normally */
+    .section-4 .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-h2{
+        font-size: 34px;
+        font-weight: 500;
+    }
+    .content-p{
+        font-size: 16px;
+    }
+
+    /* Carousel row specifically */
+    .section-4 .row:last-child {
+        display: flex;
+        flex-direction: row; /* keep carousel buttons horizontal */
+        align-items: center; /* vertically center prev/next icons */
+        justify-content: center; /* center carousel content horizontally */
+      
+    }
+
+    /* Buttons */
+    .section-4 .icon-btn {
+        flex: 0 0 auto; /* don't shrink */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Carousel content */
+    .section-4 #testimonialCarousel {
+        flex: 1;
+    }
+}
+
+
+/* footer */
+
+.footer-container{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.fw-normal{
+    font-size: 64px;
+    letter-spacing: 2px;
+    color: #000;
+    font-weight: 500;
+}
+
+.icon-footer {
+    padding-top: 20px;
+    display: flex;
+    gap: 100px;  
+}
+
+
+.icon-footer i{
+    font-size: 35px;
+}
+
+
+/* Mobile Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 30px 20px; /* Reduce padding for small screens */
+        text-align: center; /* Center all content */
+    }
+
+    .footer-container > div:first-child {
+        margin-bottom: 30px; /* Space between heading and icons */
+    }
+
+    .d-flex.justify-content-between.align-items-center.mt-5 {
+        flex-direction: column; /* Stack icons and links vertically */
+        gap: 20px; /* Add spacing between icons and links */
+        margin-top: 20px;
+    }
+
+    .fw-normal{
+        font-size: 34px;
+        font-weight: 700;
+    }
+
+    .icon-footer {
+        gap: 20px; /* Reduce gap between icons */
+        justify-content: center; /* Center icons horizontally */
+        padding-top: 0;
+    }
+
+    .icon-footer i {
+        font-size: 28px; /* Slightly smaller icons for mobile */
+    }
+
+    .small.text-uppercase {
+        display: flex;
+        flex-direction: column; /* Stack links vertically */
+        gap: 10px; /* Spacing between links */
+        align-items: center; /* Center links horizontally */
+        margin-top: 10px;
+    }
+
+    .small.text-uppercase a {
+        margin: 0; /* Remove right margin on links */
+    }
+}
